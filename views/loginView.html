@@ -1,0 +1,16 @@
+<form name="login">
+
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input class="form-control" name="email" placeholder="Email" ng-model="vm.email" required minlength="10">
+    <span ng-show="login.email.$touched && login.email.$invalid">Email is incorrect</span>
+  </div>
+
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input type="password" class="form-control" id="password" placeholder="Password" ng-model="vm.password">
+  </div>
+
+  <button type="submit" class="btn btn-primary form-control" ng-click="vm.login()">Submit</button>
+  
+</form>

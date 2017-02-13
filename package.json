@@ -1,0 +1,15 @@
+{
+  "name": "angachieve",
+  "version": "1.0.0",
+  "description": "Prayer times with mosque locations",
+  "main": "index.js",
+  "dependencies": {
+    "angular-jwt": "^0.1.9"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "iamkoding",
+  "license": "ISC"
+}
