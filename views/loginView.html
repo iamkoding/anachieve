@@ -2,15 +2,18 @@
 
   <div class="form-group">
     <label for="email">Email</label>
-    <input class="form-control" name="email" placeholder="Email" ng-model="vm.email" required minlength="10">
+    <input type="email" class="form-control" name="email" placeholder="Email" ng-model="lg.email" required minlength="10">
     <span ng-show="login.email.$touched && login.email.$invalid">Email is incorrect</span>
   </div>
 
   <div class="form-group">
     <label for="password">Password</label>
-    <input type="password" class="form-control" id="password" placeholder="Password" ng-model="vm.password">
+    <input type="password" name="password" class="form-control" ng-model="lg.password" required minlength="7">
+    <span ng-show="login.password.$touched && login.password.$invalid">Please type in your password - minimum 7 characters</span>
   </div>
 
-  <button type="submit" class="btn btn-primary form-control" ng-click="vm.login()">Submit</button>
+    <span ng-show="lg.error">The details you entered are incorrect, please try again</span>
+
+  <button type="submit" class="btn btn-primary form-control" ng-click="lg.submit()">Submit</button>
   
 </form>

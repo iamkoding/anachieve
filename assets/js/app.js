@@ -15,8 +15,24 @@
 					$state.go('login');
 				}]
 			});
-
+			
 			$httpProvider.interceptors.push('jwtInterceptor');
+			
+			$httpProvider.interceptors.push(function($q, $injector) {
+				return {
+					'requestError': function(rejection) {
+
+					}, 
+					'responseError': function(rejection) {
+						if(rejection.status === 400) {
+							localStorage.clear();
+							$injector.get('$state').go('login');
+							return $q.reject(rejection);
+						}
+					}
+
+				}	
+			})
 
 			$urlRouterProvider.otherwise('/');
 
@@ -29,13 +45,19 @@
 						requiresLogin: true
 					}
 				})
+				.state('locations', {
+					url: '/locations',
+					controller: 'mosqueController as mq',
+					templateUrl: '/views/mosqueView.html'
+				})
 				.state('login', {
 					url: '/login',
-					controller: 'loginController as login',
+					controller: 'loginController as lg',
 					templateUrl: '/views/loginView.html'
 				});
 		})
 		.run(function(authManager) {
+			authManager.checkAuthOnRefresh();
 			authManager.redirectWhenUnauthenticated();
 		});
 })();
