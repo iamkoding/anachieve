@@ -8,7 +8,7 @@
 
 	function mosque($resource) {
 		
-		var mosque = $resource('http://www.achieve.dev:8888/api/distance/', {}, {
+		var mosque = $resource(API + 'distance/', {}, {
 			post: {
 				method: 'POST'
 			}

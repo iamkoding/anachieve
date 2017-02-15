@@ -11,7 +11,7 @@
 		var Time_array = [];
 		var Sorted_time_array = [];
 
-		var Time = $resource('http://www.achieve.dev:8888/api/time/', {}, {
+		var Time = $resource(API + 'time/', {}, {
 			get: {
 				method: 'GET'
 			}
@@ -21,7 +21,7 @@
 
 			if(Time_array[month+'-'+year] !== undefined) return Time_array[month+'-'+year];
 
-			return $resource('http://www.achieve.dev:8888/api/time/'+month+'/'+year).get().$promise.then(function(success) {
+			return $resource(API + 'time/'+month+'/'+year).get().$promise.then(function(success) {
 				Time_array[month+'-'+year] = success.api.message;
 				angular.forEach(success.api.message, function(object) {
 					console.log(Date.parse(object.datetime))

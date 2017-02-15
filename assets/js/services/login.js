@@ -8,7 +8,7 @@
 
 	function login($resource) {
 		
-		var login = $resource('http://www.achieve.dev:8888/api/authenticate/', {}, {
+		var login = $resource(API + 'authenticate/', {}, {
 			put: {
 				method: 'PUT'
 			}

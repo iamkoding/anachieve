@@ -6,7 +6,7 @@
 		.module('achieveApp')
 		.controller('mosqueController', MosqueController);
 
-	function MosqueController() {
+	function MosqueController(mosque) {
 
 		var vm = this;
 		getLocation();
@@ -19,8 +19,12 @@
 		}
 
 		function showPosition(position) {
-		    console.log("Latitude: " + position.coords.latitude + 
-		    "<br>Longitude: " + position.coords.longitude); 
+		    mosque.locations(position.coords.latitude, position.coords.longitude).then(function(locations) {
+		    	console.log(locations);
+		    })
+		    .catch(function(response) {
+		    	console.log(response);
+		    });
 		}
 	}
 

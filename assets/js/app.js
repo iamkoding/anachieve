@@ -1,3 +1,5 @@
+var API = 'https://www.achieve.dev/api/';
+
 (function() {
 
 	'use strict';
@@ -24,7 +26,7 @@
 
 					}, 
 					'responseError': function(rejection) {
-						if(rejection.status === 400) {
+						if(rejection.status === 400 || rejection.status === 401) {
 							localStorage.clear();
 							$injector.get('$state').go('login');
 							return $q.reject(rejection);
