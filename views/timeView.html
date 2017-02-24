@@ -1,1 +1,9 @@
-timing
+<div ng-click="time.previous()">previous</div>
+
+<prayer type="fajr" city="{{time.city}}" year="{{time.year}}" month="{{time.month}}" date="{{time.date}}" ng-if="time.allSet"></prayer>
+<prayer type="dhuhr" city="{{time.city}}" year="{{time.year}}" month="{{time.month}}" date="{{time.date}}" ng-if="time.allSet"></prayer>
+<prayer type="asr" city="{{time.city}}" year="{{time.year}}" month="{{time.month}}" date="{{time.date}}" ng-if="time.allSet"></prayer>
+<prayer type="maghrib" city="{{time.city}}" year="{{time.year}}" month="{{time.month}}" date="{{time.date}}" ng-if="time.allSet"></prayer>
+<prayer type="isha" city="{{time.city}}" year="{{time.year}}" month="{{time.month}}" date="{{time.date}}" ng-if="time.allSet"></prayer>
+
+<div ng-click="time.next()">next</div>

@@ -1,0 +1,19 @@
+.prayer {
+	width:200px;
+	display:inline-block;
+}
+
+.prayer div {
+	width: 200px;
+	height:200px;
+	text-align: center;
+	border-radius: 50%;
+}
+
+.prayer .tick {
+	background-color: #1abc9c;
+}
+
+.prayer .cross { 
+	background-color:#c0392b;
+ }

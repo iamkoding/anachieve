@@ -7,6 +7,7 @@
     <!-- CSS -->
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css"> <!-- load bootstrap via cdn -->
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> <!-- load fontawesome -->
+    <link rel="stylesheet" href="/assets/css/app.css">
     
     <!-- JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
@@ -26,6 +27,7 @@
     <script src="/assets/js/controllers/timeController.js"></script> 
     <script src="/assets/js/controllers/mosqueController.js"></script> 
     <script src="/assets/js/controllers/loginController.js"></script> 
+    <script src="/assets/js/directives/prayer.js"></script> 
 </head> 
 
 <body class="container" ng-app="achieveApp">

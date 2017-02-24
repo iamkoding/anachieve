@@ -39,8 +39,16 @@ var API = 'https://www.achieve.dev/api/';
 			$urlRouterProvider.otherwise('/');
 
 			$stateProvider
-				.state('times', {
+				.state('time', {
 					url: '/',
+					controller: 'timeController as time',
+					templateUrl: '/views/timeView.html',
+					data: {
+						requiresLogin: true
+					}
+				})
+				.state('times', {
+					url: '/:year/:month/:date',
 					controller: 'timeController as time',
 					templateUrl: '/views/timeView.html',
 					data: {
