@@ -22,9 +22,11 @@
     <script src="/node_modules/angular-jwt/src/angularjwt/angularjwt.js"></script> 
     <script src="/assets/js/app.js"></script> 
     <script src="/assets/js/services/time.js"></script> 
+    <script src="/assets/js/services/setting.js"></script> 
     <script src="/assets/js/services/login.js"></script> 
     <script src="/assets/js/services/mosque.js"></script> 
     <script src="/assets/js/controllers/timeController.js"></script> 
+    <script src="/assets/js/controllers/settingController.js"></script> 
     <script src="/assets/js/controllers/mosqueController.js"></script> 
     <script src="/assets/js/controllers/loginController.js"></script> 
     <script src="/assets/js/directives/prayer.js"></script> 

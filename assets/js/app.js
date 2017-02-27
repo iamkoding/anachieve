@@ -47,6 +47,14 @@ var API = 'https://www.achieve.dev/api/';
 						requiresLogin: true
 					}
 				})
+				.state('settings', {
+					url: '/settings',
+					controller: 'settingController as setting',
+					templateUrl: '/views/settingView.html',
+					data: {
+						requiresLogin: true
+					}
+				})
 				.state('times', {
 					url: '/:year/:month/:date',
 					controller: 'timeController as time',

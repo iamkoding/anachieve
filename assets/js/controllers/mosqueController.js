@@ -9,7 +9,9 @@
 	function MosqueController(mosque) {
 
 		var vm = this;
+
 		getLocation();
+
 		function getLocation() {
 		    if (navigator.geolocation) {
 		        navigator.geolocation.getCurrentPosition(showPosition);
@@ -19,8 +21,15 @@
 		}
 
 		function showPosition(position) {
+			var mosques = mosque.get(position.coords.latitude, position.coords.longitude);
+
+			if(mosques) {
+				vm.mosques = mosques;
+				return true;
+			}
+
 		    mosque.locations(position.coords.latitude, position.coords.longitude).then(function(locations) {
-		    	console.log(locations);
+		    	vm.mosques = locations.mosques;
 		    })
 		    .catch(function(response) {
 		    	console.log(response);

@@ -1,1 +1,12 @@
-location
+<ul>
+	<li ng-repeat="mosque in mq.mosques">
+		<ul>
+			<li>{{mosque.name}}</li>
+			<li>{{mosque.address}}</li>
+			<li>{{mosque.city}}</li>
+			<li>{{mosque.postcode}}</li>
+			<li>{{mosque.telephone}}</li>
+			<li>{{mosque.pivot.distance}}</li>
+		</ul>	
+	</li>
+</ul>
