@@ -68,6 +68,16 @@ var API = 'https://www.achieve.dev/api/';
 					controller: 'mosqueController as mq',
 					templateUrl: '/views/mosqueView.html'
 				})
+				.state('stat', {
+					url: '/stats',
+					controller: 'statsController as st',
+					templateUrl: '/views/statsView.html'
+				})
+				.state('stats', {
+					url: '/stats/:year/:month',
+					controller: 'statsController as st',
+					templateUrl: '/views/statsView.html'
+				})
 				.state('login', {
 					url: '/login',
 					controller: 'loginController as lg',

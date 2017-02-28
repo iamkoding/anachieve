@@ -6,7 +6,7 @@
 		.module('achieveApp')
 		.controller('timeController', TimeController);
 
-	function TimeController(time, $http, jwtHelper, $state, $stateParams) 
+	function TimeController(time, $state, $stateParams) 
 	{
 
 		var vm = this;

@@ -42,6 +42,10 @@
 						Setting.name = city.user.name;
 					}
 				});
+				return {
+					cities: City_array,
+					user: Setting
+				}
 			})
 			.catch(function(respose) {
 				throw response;
