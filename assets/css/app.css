@@ -4,10 +4,13 @@
 }
 
 .prayer div {
-	width: 200px;
+	/*width: 200px;
 	height:200px;
 	text-align: center;
-	border-radius: 50%;
+	border-radius: 50%;*/
+	width: 10px;
+	height:10px;
+	border:solid 1px black;
 }
 
 .prayer .tick {

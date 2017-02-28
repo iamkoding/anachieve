@@ -12,37 +12,35 @@
 		var vm = this;
 
 		var today = new Date();
+		var date = {
+			request: today,
+			year: today.getFullYear(),
+			month: today.getMonth() + 1,
+			date: today.getDate(),
+			city: 1
+		};
 
 		if($stateParams.date !== undefined) {
 
-			var year = $stateParams.year;
-			var month = $stateParams.month;
-			var date = $stateParams.date;
+			date.year = $stateParams.year;
+			date.month = $stateParams.month;
+			date.date = $stateParams.date;
 
-			var checkDate = new Date(year + '-' + month + '-' + date);
-			if(isNaN(checkDate) || checkDate > today) return window.history.back();
-		} else {
+			var checkDate = new Date(date.year + '-' + date.month + '-' + date.date);
+			if(isNaN(checkDate) || checkDate > date.request) return window.history.back();
+			date.request = checkDate;
+		}		
 
-			var year = today.getFullYear();
-			var month = today.getMonth() + 1;
-			var date = today.getDate();
-		}
-		
-		var city = 1;
+		get();
 
-		get(city, year, month, date);
-
-		function get(city, year, month, date) 
+		function get() 
 		{
-			var object = time.get(city, year, month, date)
+			var object = time.get(date)
 
 			if(object === false) {
-				time.retrieve(city, year, month, date).then(function(object) {
+				time.retrieve(date).then(function(object) {
 
-					time.completed(city, year, month, date).then(function(object) {
-						vm.city = city;
-						vm.year = year;
-						vm.month = month;
+					time.completed(date).then(function(object) {
 						vm.date = date;
 						vm.allSet = true;
 					})
@@ -54,9 +52,6 @@
 					console.log('error timcontroller', response);
 				});
 			} else {
-				vm.city = city;
-				vm.year = year;
-				vm.month = month;
 				vm.date = date;
 				vm.allSet = true;
 			}
@@ -65,7 +60,8 @@
 
 		vm.previous = function()
 		{
-
+			date.request.setDate(date.request.getDate() - 1);
+			return $state.go('times/' + date.request.getFullYear() + '/' + date.request.getMonth() + '/' + date.request.getDate());
 		}
 	}
 

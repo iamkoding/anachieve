@@ -56,7 +56,7 @@ var API = 'https://www.achieve.dev/api/';
 					}
 				})
 				.state('times', {
-					url: '/:year/:month/:date',
+					url: '/times/:year/:month/:date',
 					controller: 'timeController as time',
 					templateUrl: '/views/timeView.html',
 					data: {
