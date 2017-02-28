@@ -27,7 +27,6 @@
 			}
 
 			vm.setting = settings;
-			console.log(settings);
 		}
 	}
 

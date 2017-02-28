@@ -36,7 +36,6 @@
 						Setting.name = city.user.name;
 					}
 				});
-				console.log(Setting);
 			})
 			.catch(function(respose) {
 				throw response;
