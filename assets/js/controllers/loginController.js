@@ -22,7 +22,7 @@
 
 			login.attempt(vm.email, vm.password).then(function(success) {
 				localStorage.setItem('id_token', success.api.message.token);
-				$state.go('times');
+				$state.go('time');
 			})
 			.catch(function(response) {
 				switch(response.status) {

@@ -1,3 +1,12 @@
-<div>
-	<span>{{setting}}</span>
+<div ng-if="setting.user">
+	<span>{{setting.user.name}}</span>
+	<span>{{setting.user.email}}</span>
+	<div class="checkbox">
+		<label>
+			<input type="checkbox" id="vibrate" ng-model="setting.user.vibrate" ng-change="setting.vibrate()">
+		</label>
+	</div>
+
+<!-- 	<cities></cities>
+	<password></password>	 -->
 </div>

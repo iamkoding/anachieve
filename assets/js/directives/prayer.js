@@ -13,13 +13,10 @@
 			templateUrl: '/views/prayerDirectiveView.html',
 			scope: {
 				type: '@type',
-				city: '@city',
-				year: '@year',
-				month: '@month',
-				date: '@date'
+				date: '@date',
 			},
 			controller: function($scope, $attrs) {
-				var times = time.get($scope.city,$scope.year,$scope.month,$scope.date);
+				var times = time.get(JSON.parse($scope.date));
 				switch($scope.type) {
 					case 'fajr':
 						$scope.prayer = times.fajr;
@@ -43,6 +40,24 @@
 				$scope.prayer.hour = date.getHours();
 				$scope.prayer.minute = date.getMinutes();
 				$scope.prayer.second = date.getSeconds();
+
+				$scope.save = function(id) {
+					time.save(id, JSON.parse($scope.date), $scope.type).then(function(success) {
+
+					})
+					.catch(function(response) {
+						console.log('error prayer directive save', response);
+					})
+				}
+
+				$scope.delete = function(id) {
+					time.delete(id, JSON.parse($scope.date), $scope.type).then(function(success) {
+						
+					})
+					.catch(function(response) {
+						console.log('error prayer directive delete', response);
+					})
+				}
 			}
 		}
 	}

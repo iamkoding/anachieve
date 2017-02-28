@@ -1,0 +1,3 @@
+<select name="city" id="city"
+      ng-options="city.name for city in data.cities track by city.id"
+      ng-model="data.selected" ng-change="updateCity()"></select>

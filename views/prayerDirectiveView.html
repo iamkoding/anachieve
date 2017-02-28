@@ -1,6 +1,6 @@
 <div class="prayer">
-	<div class="tick" ng-if="prayer.save"></div>	
-	<div class="cross" ng-if="prayer.save === undefined"></div>	
+	<div class="tick" ng-if="prayer.save" ng-click="delete(prayer.id)"></div>	
+	<div class="cross" ng-if="prayer.save === undefined" ng-click="save(prayer.id)"></div>	
 	<ul>
 		<li>{{prayer.hour}}</li>	
 		<li>{{prayer.minute}}</li>	
