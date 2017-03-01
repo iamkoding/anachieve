@@ -88,6 +88,7 @@
 			if(Time_array[date.city] === undefined) level = 1;
 			else if(Time_array[date.city][date.year] === undefined) level = 2;
 			else if(Time_array[date.city][date.year][date.month] === undefined) level = 3;
+			else if(Time_array[date.city][date.year][date.month].length === 0) level = 4;
 
 			if(level === 0) return Time_array[date.city][date.year][date.month][date.date];
 

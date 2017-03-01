@@ -21,7 +21,6 @@
 
 				$scope.changePassword = function() {
 					setting.password($scope.user.password, $scope.user.new_password).then(function(success) {
-						console.log(success);
 						$scope.show = false;
 					})
 					.catch(function(response) {

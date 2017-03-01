@@ -1,1 +1,10 @@
-stats
+<div ng-click="st.previous()">previous</div>
+
+<stat type="fajr" date={{st.date}} ng-if="st.allSet"></stat>
+<stat type="dhuhr" date={{st.date}} ng-if="st.allSet"></stat>
+<stat type="asr" date={{st.date}} ng-if="st.allSet"></stat>
+<stat type="maghrib" date={{st.date}} ng-if="st.allSet"></stat>
+<stat type="isha" date={{st.date}} ng-if="st.allSet"></stat>
+<stat type="total" date={{st.date}} ng-if="st.allSet"></stat>
+
+<div ng-click="st.next()" ng-if="st.today === undefined">next</div>

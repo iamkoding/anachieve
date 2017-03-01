@@ -5,7 +5,7 @@ var API = 'https://www.achieve.dev/api/';
 	'use strict';
 
 	angular
-		.module('achieveApp', ['ui.router', 'angular-jwt', 'ngResource'])
+		.module('achieveApp', ['ui.router', 'angular-jwt', 'ngResource','percentCircle-directive'])
 		.config(function Config($httpProvider, jwtOptionsProvider, $stateProvider, $urlRouterProvider) {
 
 			jwtOptionsProvider.config({
@@ -34,7 +34,7 @@ var API = 'https://www.achieve.dev/api/';
 					}
 
 				}	
-			})
+			});
 
 			$urlRouterProvider.otherwise('/');
 
@@ -47,14 +47,6 @@ var API = 'https://www.achieve.dev/api/';
 						requiresLogin: true
 					}
 				})
-				.state('settings', {
-					url: '/settings',
-					controller: 'settingController as setting',
-					templateUrl: '/views/settingView.html',
-					data: {
-						requiresLogin: true
-					}
-				})
 				.state('times', {
 					url: '/times/:year/:month/:date',
 					controller: 'timeController as time',
@@ -62,11 +54,6 @@ var API = 'https://www.achieve.dev/api/';
 					data: {
 						requiresLogin: true
 					}
-				})
-				.state('locations', {
-					url: '/locations',
-					controller: 'mosqueController as mq',
-					templateUrl: '/views/mosqueView.html'
 				})
 				.state('stat', {
 					url: '/stats',
@@ -78,11 +65,25 @@ var API = 'https://www.achieve.dev/api/';
 					controller: 'statsController as st',
 					templateUrl: '/views/statsView.html'
 				})
+				.state('settings', {
+					url: '/settings',
+					controller: 'settingController as setting',
+					templateUrl: '/views/settingView.html',
+					data: {
+						requiresLogin: true
+					}
+				})
+				.state('locations', {
+					url: '/locations',
+					controller: 'mosqueController as mq',
+					templateUrl: '/views/mosqueView.html'
+				})
 				.state('login', {
 					url: '/login',
 					controller: 'loginController as lg',
 					templateUrl: '/views/loginView.html'
 				});
+
 		})
 		.run(function(authManager) {
 			authManager.checkAuthOnRefresh();

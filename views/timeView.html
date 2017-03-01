@@ -6,4 +6,4 @@
 <prayer type="maghrib" date="{{time.date}}" ng-if="time.allSet"></prayer>
 <prayer type="isha" date="{{time.date}}" ng-if="time.allSet"></prayer>
 
-<div ng-click="time.next()">next</div>
+<div ng-click="time.next()" ng-if="time.today === undefined">next</div>

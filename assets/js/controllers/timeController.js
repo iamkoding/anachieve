@@ -28,8 +28,10 @@
 
 			var checkDate = new Date(date.year + '-' + date.month + '-' + date.date);
 			if(isNaN(checkDate) || checkDate > date.request) return window.history.back();
-			date.request = checkDate;
-		}		
+			date.request = checkDate;		
+		}
+		
+		if(today.getDate() === date.request.getDate() && today.getMonth() === date.request.getMonth() && today.getFullYear() === date.request.getFullYear()) vm.today = true;
 
 		get();
 
@@ -49,7 +51,7 @@
 					})
 				})
 				.catch(function(response) {
-					console.log('error timcontroller', response);
+					console.log(response);
 				});
 			} else {
 				vm.date = date;
@@ -61,7 +63,13 @@
 		vm.previous = function()
 		{
 			date.request.setDate(date.request.getDate() - 1);
-			return $state.go('times/' + date.request.getFullYear() + '/' + date.request.getMonth() + '/' + date.request.getDate());
+			return $state.go('times', {year: date.request.getFullYear(), month: date.request.getMonth() + 1, date: date.request.getDate()});
+		}
+
+		vm.next = function()
+		{
+			date.request.setDate(date.request.getDate() + 1);
+			return $state.go('times', {year: date.request.getFullYear(), month: date.request.getMonth() + 1, date: date.request.getDate()});
 		}
 	}
 

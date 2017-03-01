@@ -5,14 +5,17 @@
     <title></title>
 
     <!-- CSS -->
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css"> <!-- load bootstrap via cdn -->
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> <!-- load fontawesome -->
+    <link rel="stylesheet" type="text/css" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/node_modules/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/node_modules/angular-percent-circle-directive/dist/percent-circle.css">
     <link rel="stylesheet" href="/assets/css/app.css">
+
     
     <!-- JS -->
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.8/angular-ui-router.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-resource/1.5.8/angular-resource.js"></script>
+    <script src="/node_modules/angular/angular.min.js"></script>
+    <script src="/node_modules/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="/node_modules/angular-resource/angular-resource.min.js"></script>
+    <script src="/node_modules/angular-percent-circle-directive/dist/percent-circle-directive.js" type="text/javascript"></script>
 
     <script src="/node_modules/angular-jwt/src/angularjwt/services/authManager.js"></script> 
     <script src="/node_modules/angular-jwt/src/angularjwt/services/interceptor.js"></script> 
@@ -35,6 +38,8 @@
     <script src="/assets/js/directives/menu.js"></script> 
     <script src="/assets/js/directives/cities.js"></script> 
     <script src="/assets/js/directives/password.js"></script> 
+    <script src="/assets/js/directives/stat.js"></script> 
+
 </head> 
 
 <body class="container" ng-app="achieveApp">
