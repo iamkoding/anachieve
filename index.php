@@ -36,6 +36,7 @@
     <script src="/assets/js/controllers/loginController.js"></script> 
     <script src="/assets/js/directives/prayer.js"></script> 
     <script src="/assets/js/directives/menu.js"></script> 
+    <script src="/assets/js/directives/error.js"></script> 
     <script src="/assets/js/directives/cities.js"></script> 
     <script src="/assets/js/directives/password.js"></script> 
     <script src="/assets/js/directives/stat.js"></script> 
@@ -44,7 +45,8 @@
 
 <body class="container" ng-app="achieveApp">
     <menu></menu>
-    <div ui-view ></div>
+    <div ui-view >
+    </div>
 </body> 
 
 </html>

@@ -6,7 +6,7 @@
 		.module('achieveApp')
 		.controller('mosqueController', MosqueController);
 
-	function MosqueController(mosque) {
+	function MosqueController(mosque, $scope) {
 
 		var vm = this;
 
@@ -23,17 +23,18 @@
 		function showPosition(position) {
 			var mosques = mosque.get(position.coords.latitude, position.coords.longitude);
 
-			if(mosques) {
-				vm.mosques = mosques;
-				return true;
+			if(!mosques) {
+				mosque.locations(position.coords.latitude, position.coords.longitude).then(function(locations) {
+			    	vm.mosques = mosque.get(position.coords.latitude, position.coords.longitude);
+			    })
+			    .catch(function(response) {
+			    	console.log(response);
+			    });
+			} else {
+				$scope.$apply(function() {
+					vm.mosques = mosques;
+				});
 			}
-
-		    mosque.locations(position.coords.latitude, position.coords.longitude).then(function(locations) {
-		    	vm.mosques = locations.mosques;
-		    })
-		    .catch(function(response) {
-		    	console.log(response);
-		    });
 		}
 	}
 

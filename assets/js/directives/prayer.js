@@ -44,19 +44,13 @@
 				$scope.save = function(id) {
 					time.save(id, JSON.parse($scope.date), $scope.type).then(function(success) {
 
-					})
-					.catch(function(response) {
-						console.log('error prayer directive save', response);
-					})
+					});
 				}
 
 				$scope.delete = function(id) {
 					time.delete(id, JSON.parse($scope.date), $scope.type).then(function(success) {
 						
-					})
-					.catch(function(response) {
-						console.log('error prayer directive delete', response);
-					})
+					});
 				}
 			}
 		}

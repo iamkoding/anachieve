@@ -45,13 +45,15 @@
 					time.completed(date).then(function(object) {
 						vm.date = date;
 						vm.allSet = true;
-					})
-					.catch(function(response) {
-						console.log('error timecontroller saves', response);
-					})
+					});
 				})
 				.catch(function(response) {
-					console.log(response);
+					switch(response.status) {
+						case 416: 
+							localStorage.setItem('errorMessage', response.data.api.message);
+							return window.history.back();
+							break;
+					}	
 				});
 			} else {
 				vm.date = date;

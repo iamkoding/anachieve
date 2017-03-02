@@ -26,11 +26,13 @@ var API = 'https://www.achieve.dev/api/';
 
 					}, 
 					'responseError': function(rejection) {
-						if(rejection.status === 400 || rejection.status === 401) {
+						console.log(rejection.status);
+						if(rejection.status === 500 || rejection.status === 401) {
 							localStorage.clear();
+							console.log('here');
 							$injector.get('$state').go('login');
-							return $q.reject(rejection);
 						}
+						return $q.reject(rejection);
 					}
 
 				}	
