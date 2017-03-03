@@ -6,7 +6,7 @@
 		.module('achieveApp')
 		.directive('prayer', Prayer);
 
-	function Prayer(time) 
+	function Prayer(time, error) 
 	{
 		return {
 			restrict: 'E',
@@ -44,12 +44,18 @@
 				$scope.save = function(id) {
 					time.save(id, JSON.parse($scope.date), $scope.type).then(function(success) {
 
+					})
+					.catch(function(response) {
+						error.set(response.data.api.message);
 					});
 				}
 
 				$scope.delete = function(id) {
 					time.delete(id, JSON.parse($scope.date), $scope.type).then(function(success) {
 						
+					})
+					.catch(function(response) {
+						error.set(response.data.api.message);
 					});
 				}
 			}

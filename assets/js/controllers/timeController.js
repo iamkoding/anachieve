@@ -6,7 +6,7 @@
 		.module('achieveApp')
 		.controller('timeController', TimeController);
 
-	function TimeController(time, $state, $stateParams) 
+	function TimeController(time, $state, $stateParams, error) 
 	{
 
 		var vm = this;
@@ -27,6 +27,7 @@
 			date.date = $stateParams.date;
 
 			var checkDate = new Date(date.year + '-' + date.month + '-' + date.date);
+
 			if(isNaN(checkDate) || checkDate > date.request) return window.history.back();
 			date.request = checkDate;		
 		}
@@ -50,7 +51,11 @@
 				.catch(function(response) {
 					switch(response.status) {
 						case 416: 
-							localStorage.setItem('errorMessage', response.data.api.message);
+							error.set(response.data.api.message);
+							return window.history.back();
+							break;
+						case 406:
+							error.set("Your dates are way off! Lets put you back to something more reasonable.")
 							return window.history.back();
 							break;
 					}	

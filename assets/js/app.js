@@ -29,7 +29,6 @@ var API = 'https://www.achieve.dev/api/';
 						console.log(rejection.status);
 						if(rejection.status === 500 || rejection.status === 401) {
 							localStorage.clear();
-							console.log('here');
 							$injector.get('$state').go('login');
 						}
 						return $q.reject(rejection);

@@ -58,7 +58,6 @@
 
 		function saveUserTime(time_id, date, type)
 		{
-			console.log(date);
 			return Time.post({time_id: time_id}).$promise.then(function(success) {
 				Time_array[date.city][date.year][date.month][date.date][type].save = true;
 			})

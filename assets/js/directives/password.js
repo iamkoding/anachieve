@@ -6,7 +6,7 @@
 		.module('achieveApp')
 		.directive('password', Password);
 
-	function Password(setting) 
+	function Password(setting, error) 
 	{
 		return {
 			restrict: 'E',
@@ -24,7 +24,12 @@
 						$scope.show = false;
 					})
 					.catch(function(response) {
-						console.log('error password directive update', response);
+						switch(response.status) {
+							case 403:
+							case 406:
+								error.set(response.data.api.message);	
+								break;
+						}
 					})
 				}
 				

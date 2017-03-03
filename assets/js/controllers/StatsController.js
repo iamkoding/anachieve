@@ -41,7 +41,11 @@
 					vm.date = date;
 				})
 				.catch(function(response) {
-					console.log('error statscontroller', response);
+					switch(response.status) {
+						case 406:
+							error.set(response.data.api.message);
+							break;
+					}
 				});
 			} else {
 				vm.date = date;

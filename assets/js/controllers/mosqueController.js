@@ -6,7 +6,7 @@
 		.module('achieveApp')
 		.controller('mosqueController', MosqueController);
 
-	function MosqueController(mosque, $scope) {
+	function MosqueController(mosque, $scope, error) {
 
 		var vm = this;
 
@@ -28,7 +28,11 @@
 			    	vm.mosques = mosque.get(position.coords.latitude, position.coords.longitude);
 			    })
 			    .catch(function(response) {
-			    	console.log(response);
+			    	switch(response.status) {
+			    		case 406:
+			    			error.set(response.data.api.message);
+			    			break;
+			    	}
 			    });
 			} else {
 				$scope.$apply(function() {
