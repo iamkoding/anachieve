@@ -59,12 +59,18 @@ var API = 'https://www.achieve.dev/api/';
 				.state('stat', {
 					url: '/stats',
 					controller: 'statsController as st',
-					templateUrl: '/views/statsView.html'
+					templateUrl: '/views/statsView.html',
+					data: {
+						requiresLogin: true
+					}
 				})
 				.state('stats', {
 					url: '/stats/:year/:month',
 					controller: 'statsController as st',
-					templateUrl: '/views/statsView.html'
+					templateUrl: '/views/statsView.html',
+					data: {
+						requiresLogin: true
+					}
 				})
 				.state('settings', {
 					url: '/settings',
@@ -77,7 +83,15 @@ var API = 'https://www.achieve.dev/api/';
 				.state('locations', {
 					url: '/locations',
 					controller: 'mosqueController as mq',
-					templateUrl: '/views/mosqueView.html'
+					templateUrl: '/views/mosqueView.html',
+					data: {
+						requiresLogin: true
+					}
+				})
+				.state('register', {
+					url: '/register',
+					controller: 'registerController as rg',
+					templateUrl: '/views/registerView.html'
 				})
 				.state('login', {
 					url: '/login',

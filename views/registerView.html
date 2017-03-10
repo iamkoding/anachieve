@@ -1,0 +1,46 @@
+<a ui-sref="login">Login</a>
+
+<form name="register">
+
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input type="email" class="form-control" name="email" placeholder="Email" ng-model="rg.email" required minlength="10">
+    <span ng-show="register.email.$touched && register.email.$invalid">Email is incorrect</span>
+  </div>
+
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input type="password" name="password" class="form-control" ng-model="rg.password" required minlength="7">
+    <span ng-show="register.password.$touched && register.password.$invalid">Please type in your password - minimum 7 characters</span>
+  </div>
+
+  <div class="form-group">
+    <label for="name">First Name</label>
+    <input type="text" name="name" class="form-control" ng-model="rg.name" required minlength="4">
+    <span ng-show="register.name.$touched && register.name.$invalid">Please type in your name - minimum 4 characters</span>
+  </div>
+
+  <div class="form-group">
+    <label for="city_id">City</label>
+
+    <select name="city" id="city" class="form-control" 
+      ng-options="city.name for city in rg.cities track by city.id"
+      ng-model="rg.city"></select>
+    <span ng-show="register.city.$touched && register.city.$invalid">City is incorrect</span>
+  </div>
+
+  <div class="form-group">
+    <label for="vibrate">Vibrate</label>
+    <div class="radio">
+      <label><input type="radio" name="vibrate" ng-model="rg.vibrate" value="1">Yes</label>
+    </div>
+    <div class="radio">
+      <label><input type="radio" name="vibrate" ng-model="rg.vibrate" value="0">No</label>
+    </div>
+  </div>
+
+  <span ng-show="rg.error">The details you entered are incorrect, please try again</span>
+
+  <button type="submit" class="btn btn-primary form-control" ng-click="rg.submit()">Submit</button>
+  
+</form>

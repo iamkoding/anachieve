@@ -6,7 +6,7 @@
 		.module('achieveApp')
 		.controller('statsController', StatsController);
 
-	function StatsController(stats, $state, $stateParams) {
+	function StatsController(stats, $state, $stateParams, error) {
 
 		var vm = this;
 
@@ -44,6 +44,11 @@
 					switch(response.status) {
 						case 406:
 							error.set(response.data.api.message);
+							return window.history.back();
+							break;
+						case 416:
+							error.set(response.data.api.message);
+							return window.history.back();
 							break;
 					}
 				});

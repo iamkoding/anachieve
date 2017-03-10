@@ -29,7 +29,7 @@
 
 		function retrive()
 		{
-			return $resource(API + 'cities').get().$promise.then(function(success) {
+			return $resource(API + 'settings').get().$promise.then(function(success) {
 				angular.forEach(success.api.message, function(city, key) {
 					City_array[key] = {
 						id: city.id,
